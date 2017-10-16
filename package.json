@@ -1,0 +1,13 @@
+{
+  "name": "paper-clips",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "vue": "^2.5.2",
+    "vue-loader": "^13.3.0",
+    "webpack": "^3.7.1"
+  }
+}
