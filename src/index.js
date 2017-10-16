@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import store from './store'
-import Main from './Main.vue'
+import Main from './components/Main.vue'
 
 const application = new Vue({
   el: '#main',

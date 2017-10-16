@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const getters = require('../../../../src/components/store/getters')
+const getters = require('../../../src/store/getters')
 
 test('Getters get the correct clips information', t => {
   const state = {clips: 1}

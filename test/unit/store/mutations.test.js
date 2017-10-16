@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const mutations = require('../../../../src/components/store/mutations')
+const mutations = require('../../../src/store/mutations')
 
 test('.produceClip increments clips and stock information', t => {
   const state = {clips: 1, stock: 1}
