@@ -2,12 +2,21 @@
   "name": "paper-clips",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "deploy": "echo 'Not available yet.'",
+    "bundle": "webpack",
+    "start": "npm run bundle && open src/index.html"
+  },
   "repository": {},
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "css-loader": "^0.28.7",
     "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.2",
+    "vuex": "^3.0.0",
     "webpack": "^3.7.1"
   }
 }
