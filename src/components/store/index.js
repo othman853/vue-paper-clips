@@ -1,23 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import state from './state'
+import mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
+
 Vue.use(Vuex)
-
-export const state = {
-  clips: 0
-}
-
-export const getters = {
-  clips: state => state.clips
-}
-
-export const mutations = {
-  incrementClip: (state) => state.clips++,
-  decrementClip: (state) => state.clips--
-}
-
-export const actions = {
-  incrementClip: (context) => context.commit('incrementClip')
-}
 
 export default new Vuex.Store({state, getters, actions, mutations})

@@ -5,11 +5,13 @@
   "scripts": {
     "deploy": "echo 'Not available yet.'",
     "bundle": "webpack",
-    "start": "npm run bundle && open src/index.html"
+    "start": "npm run bundle && open src/index.html",
+    "test": "ava"
   },
   "repository": {},
   "license": "MIT",
   "devDependencies": {
+    "ava": "^0.22.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "css-loader": "^0.28.7",

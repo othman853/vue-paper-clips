@@ -8,11 +8,11 @@
 
 <script>
 import ClipCounter from './ClipCounter.vue'
-import {mapActions} from 'vuex'
+import {mapMutations} from 'vuex'
 
 export default {
   components: {ClipCounter},
-  methods: mapActions(['incrementClip'])
+  methods: mapMutations(['incrementClip'])
 }
 </script>
 
