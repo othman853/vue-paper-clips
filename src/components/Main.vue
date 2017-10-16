@@ -1,20 +1,18 @@
 <template>
   <div>
     <ClipCounter></ClipCounter>
-    <h3> Operations </h3>
-    <button @click="incrementClip">Make paperclip</button>
+    <ProduceClip></ProduceClip>
+    <h3>Operations</h3>
+    <OperationStatus></OperationStatus>
   </div>
 </template>
 
 <script>
 import ClipCounter from './ClipCounter.vue'
-import {mapMutations} from 'vuex'
+import ProduceClip from './ProduceClip.vue'
+import OperationStatus from './OperationStatus.vue'
 
 export default {
-  components: {ClipCounter},
-  methods: mapMutations(['incrementClip'])
+  components: {ClipCounter, ProduceClip, OperationStatus}
 }
 </script>
-
-<style>
-</style>

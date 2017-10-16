@@ -1,4 +1,9 @@
 module.exports = {
-  incrementClip: (state) => state.clips++,
-  decrementClip: (state) => state.clips--
+  produceClip(state) {
+    state.clips++
+    state.stock++
+  },
+  sellClip(state) {
+    state.stock--
+  }
 }
