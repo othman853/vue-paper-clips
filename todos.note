@@ -7,5 +7,15 @@ Features:
     => Implement "Increase Level" button
     => Implement logic to increase public demand
 
+  AutoClipper
+    => Implement "Buy auto clipper" button
+    => Calculate price increse of auto clippers
+
 Improvements:
   => Format floating point numbers to use two decimal places
+  => Improve rating proportions
+
+Tech debts:
+  => Check if store getters are really necessary (does not seem so)
+  => Check out how to test the Vue components that depend on Vuex
+  => Component test for Store and Engine pieces
