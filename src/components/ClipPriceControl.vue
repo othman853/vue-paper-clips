@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="increasePrice">Increase Price</button>
-    <button @click="reducePrice">Reduce Price</button>
+    <button @click="INCREASE_PRICE">Increase Price</button>
+    <button @click="DECREASE_PRICE">Reduce Price</button>
   </div>
 </template>
 
@@ -9,6 +9,6 @@
 import {mapMutations} from 'vuex'
 
 export default {
-  methods: mapMutations(['increasePrice', 'reducePrice'])
+  methods: mapMutations(['INCREASE_PRICE', 'DECREASE_PRICE'])
 }
 </script>

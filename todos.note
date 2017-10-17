@@ -1,7 +1,9 @@
 Features:
   Wire
     => Implement stock
-    => Implement "buy wire" button
+      => Decrease wire stock on clip production
+    => Implement "Buy Wire" button
+      => Mutation of wire stock and funds
 
   Marketing
     => Implement "Increase Level" button
@@ -13,9 +15,8 @@ Features:
 
 Improvements:
   => Format floating point numbers to use two decimal places
-  => Improve rating proportions
+  => Improve variation ratings
 
 Tech debts:
-  => Check if store getters are really necessary (does not seem so)
   => Check out how to test the Vue components that depend on Vuex
   => Component test for Store and Engine pieces

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="produceClip">Produce Paperclip</button>
+    <button @click="PRODUCE_CLIP">Produce Paperclip</button>
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 import {mapMutations} from 'vuex'
 
 export default {
-  methods: mapMutations(['produceClip'])
+  methods: mapMutations(['PRODUCE_CLIP'])
 }
 </script>
