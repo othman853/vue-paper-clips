@@ -14,6 +14,7 @@
     "ava": "^0.22.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.7",
     "float-equal": "^1.0.0",
     "sinon": "^4.0.1",
