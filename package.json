@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages -d build/",
+    "deploy": "yarn test && gh-pages -d build/",
     "bundle": "webpack",
     "start": "webpack-dev-server",
     "test": "ava"

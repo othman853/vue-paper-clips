@@ -17,10 +17,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.SourceMapDevToolPlugin(),
     new CopyWebpackPlugin([
       {from: join(CODE_PATH, 'index.html')}
     ])
   ]
 }
-
-
