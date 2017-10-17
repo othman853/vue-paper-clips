@@ -1,9 +1,9 @@
 <template>
   <div>
-    <p>Available funds: <em>{{$store.state.stats.funds}}</em></p>
-    <p>Stock count: <em>{{$store.state.clip.stock}}</em></p>
-    <p>Clip Price: <em>{{$store.state.clip.price}}</em></p>
-    <p>Public Demand: <em>{{$store.state.stats.demand}}</em></p>
+    <p>Available funds: ${{parseFloat($store.state.stats.funds).toFixed(2)}}</p>
+    <p>Stock count: {{$store.state.clip.stock}}</p>
+    <p>Clip Price: {{parseFloat($store.state.clip.price).toFixed(2)}}</p>
+    <p>Public Demand: {{parseFloat($store.state.stats.demand * 100).toFixed(2)}}%</p>
     <ClipPriceControl></ClipPriceControl>
   </div>
 </template>
