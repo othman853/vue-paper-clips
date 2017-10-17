@@ -5,5 +5,5 @@ module.exports = {
   clipPrice: 0.5,
   publicDemand: 0.2,
   demandVariation: 0.1,
-  priceVariation: 0.01
+  priceVariation: 0.1
 }

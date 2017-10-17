@@ -17,7 +17,9 @@ module.exports = {
   },
 
   reducePrice(state) {
-    state.clipPrice -= state.priceVariation
-    state.publicDemand = state.publicDemand + (state.publicDemand * state.demandVariation)
+    if (state.clipPrice > 0.1) {
+      state.clipPrice -= state.priceVariation
+      state.publicDemand = state.publicDemand + (state.publicDemand * state.demandVariation)
+    }
   }
 }

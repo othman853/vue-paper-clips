@@ -53,10 +53,18 @@ test('.increasePrice increases price by priceVariation and reduces demand by dem
 })
 
 test('.reducePrice reduces price by priceVariation and increases demand by demand variation', t => {
-  const state = {clipPrice: 0.05, publicDemand: 0.2, demandVariation: 0.1, priceVariation: 0.01}
+  const state = {clipPrice: 0.5, publicDemand: 0.2, demandVariation: 0.1, priceVariation: 0.1}
 
   mutations.reducePrice(state)
 
-  t.true(floatEqual(state.clipPrice, 0.04))
+  t.true(floatEqual(state.clipPrice, 0.4))
   t.true(floatEqual(state.publicDemand, 0.22))
+})
+
+test('.reducePrice does not reduce price to something lower than 0.1', t => {
+  const state = {clipPrice: 0.1, demandVariation: 0.1, priceVariation: 0.1}
+
+  mutations.reducePrice(state)
+
+  t.true(floatEqual(state.clipPrice, 0.1))
 })

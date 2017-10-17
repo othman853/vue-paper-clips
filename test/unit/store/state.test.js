@@ -21,4 +21,4 @@ test('State has expected initial demandVariation', t =>
   t.deepEqual(state.demandVariation, 0.1))
 
 test('State has expected initial priceVariation', t =>
-  t.deepEqual(state.priceVariation, 0.01))
+  t.deepEqual(state.priceVariation, 0.1))
