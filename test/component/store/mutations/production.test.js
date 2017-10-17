@@ -6,6 +6,7 @@ describe('component test -> mutations -> clip production', () => {
   it('starts with original state values', () => {
     expect(store.state.clip.count).to.equal(0)
     expect(store.state.clip.stock).to.equal(0)
+    expect(store.state.wire.stock).to.equal(1000)
     expect(store.state.clip.price).to.equal(0.25)
   })
 

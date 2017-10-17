@@ -1,7 +1,10 @@
 module.exports = {
   produce(state) {
-    state.clip.count++
-    state.clip.stock++
+    if (state.wire.stock > 0) {
+      state.clip.count++
+      state.clip.stock++
+      state.wire.stock--
+    }
   },
 
   sell(state) {

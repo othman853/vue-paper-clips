@@ -3,14 +3,28 @@ const test = require('ava')
 
 const mutations = require('../../../src/store/mutations')
 
-test('PRODUCE_CLIP increments clips and stock information', t => {
+test('PRODUCE_CLIP increments clip count and stock information and decreases wire stock if there is available wire stock', t => {
+  const wire = {stock: 1}
   const clip = {count: 1, stock: 1}
-  const state = {clip}
+  const state = {clip, wire}
 
   mutations.PRODUCE_CLIP(state)
 
   t.deepEqual(state.clip.count, 2)
   t.deepEqual(state.clip.stock, 2)
+  t.deepEqual(state.wire.stock, 0)
+})
+
+test('PRODUCE_CLIP does not change count and stock of clipes if there is no wire stock available', t => {
+  const wire = {stock: 0}
+  const clip = {count: 1, stock: 1}
+  const state = {clip, wire}
+
+  mutations.PRODUCE_CLIP(state)
+
+  t.deepEqual(state.clip.count, 1)
+  t.deepEqual(state.clip.stock, 1)
+  t.deepEqual(state.wire.stock, 0)
 })
 
 test('SELL_CLIP decrements stock and registers profit', t => {

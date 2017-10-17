@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="PRODUCE_CLIP">Produce Paperclip</button>
+    <button @click="PRODUCE_CLIP" :disabled="$store.state.wire.stock < 1">Produce Paperclip</button>
   </div>
 </template>
 
