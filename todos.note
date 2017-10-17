@@ -1,0 +1,11 @@
+Features:
+  Wire
+    => Implement stock
+    => Implement "buy wire" button
+
+  Marketing
+    => Implement "Increase Level" button
+    => Implement logic to increase public demand
+
+Improvements:
+  => Format floating point numbers to use two decimal places
