@@ -2,7 +2,7 @@ const {join} = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: join(__dirname, 'src', 'components', 'index.js'),
+  entry: join(__dirname, 'src', 'index.js'),
   output: {
     path: join(__dirname, 'build'),
     filename: 'dist.js'

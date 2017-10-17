@@ -4,6 +4,9 @@ module.exports = {
     state.stock++
   },
   sellClip(state) {
-    state.stock--
+    if (state.stock > 0) {
+      state.stock--
+      state.funds += state.clipPrice
+    }
   }
 }
