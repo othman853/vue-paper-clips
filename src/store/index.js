@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+const Vue = require('vue')
+const Vuex = require('vuex')
 
-import state from './state'
-import mutations from './mutations'
-import getters from './getters'
+const state = require('./state')
+const mutations = require('./mutations')
+const getters = require('./getters')
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({state, getters, mutations})
+module.exports = new Vuex.Store({state, getters, mutations})
