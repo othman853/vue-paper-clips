@@ -15,6 +15,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "css-loader": "^0.28.7",
+    "float-equal": "^1.0.0",
     "sinon": "^4.0.1",
     "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
