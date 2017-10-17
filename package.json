@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "echo 'Not available yet.'",
     "bundle": "webpack",
-    "start": "npm run bundle && open src/index.html",
+    "start": "webpack-dev-server",
     "test": "ava"
   },
   "repository": {},
@@ -22,6 +22,7 @@
     "vue-loader": "^13.3.0",
     "vue-template-compiler": "^2.5.2",
     "vuex": "^3.0.0",
-    "webpack": "^3.7.1"
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.2"
   }
 }
