@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "deploy": "echo 'Not available yet.'",
+    "deploy": "gh-pages -d build/",
     "bundle": "webpack",
     "start": "webpack-dev-server",
     "test": "ava"
@@ -17,6 +17,7 @@
     "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.7",
     "float-equal": "^1.0.0",
+    "gh-pages": "^1.0.0",
     "sinon": "^4.0.1",
     "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
