@@ -1,15 +1,13 @@
 module.exports = {
   increase(state) {
-    state.clipPrice += state.priceVariation
-    state.publicDemand = state.publicDemand - (state.publicDemand * state.demandVariation)
-
+    state.clip.price += state.variation.clipPrice
+    state.stats.demand = state.stats.demand - (state.stats.demand * state.variation.demand)
   },
 
   decrease(state) {
-    if (state.clipPrice > 0.1) {
-      state.clipPrice -= state.priceVariation
-      state.publicDemand = state.publicDemand + (state.publicDemand * state.demandVariation)
+    if (state.clip.price > 0.01) {
+      state.clip.price -= state.variation.clipPrice
+      state.stats.demand = state.stats.demand + (state.stats.demand * state.variation.demand)
     }
-
   }
 }

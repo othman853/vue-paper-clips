@@ -20,3 +20,4 @@ Improvements:
 Tech debts:
   => Check out how to test the Vue components that depend on Vuex
   => Component test for Store and Engine pieces
+    => Replace expressions by hardcoded values on component test assertions

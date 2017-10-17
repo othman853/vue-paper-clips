@@ -39,27 +39,35 @@ test('SELL_CLIP preserves 0 stock and does not register any profit', t => {
 
 
 test('INCREASE_PRICE price by priceVariation and reduces demand by demand variation', t => {
-  const state = {clipPrice: 0.05, publicDemand: 0.2, demandVariation: 0.1, priceVariation: 0.01}
+  const clip = {price: 0.05}
+  const stats = {demand: 0.2}
+  const variation = {demand: 0.1, clipPrice: 0.01}
+  const state = {clip, stats, variation}
 
   mutations.INCREASE_PRICE(state)
 
-  t.true(floatEqual(state.clipPrice, 0.06))
-  t.true(floatEqual(state.publicDemand, 0.18))
+  t.true(floatEqual(state.clip.price, 0.06))
+  t.true(floatEqual(state.stats.demand, 0.18))
 })
 
 test('DECREASE_PRICE reduces price by priceVariation and increases demand by demand variation', t => {
-  const state = {clipPrice: 0.5, publicDemand: 0.2, demandVariation: 0.1, priceVariation: 0.1}
+  const clip = {price: 0.5}
+  const stats = {demand: 0.2}
+  const variation = {demand: 0.1, clipPrice: 0.1}
+  const state = {clip, stats, variation}
 
   mutations.DECREASE_PRICE(state)
 
-  t.true(floatEqual(state.clipPrice, 0.4))
-  t.true(floatEqual(state.publicDemand, 0.22))
+  t.true(floatEqual(state.clip.price, 0.4))
+  t.true(floatEqual(state.stats.demand, 0.22))
 })
 
-test('DECREASE_PRICE does not reduce price to something lower than 0.1', t => {
-  const state = {clipPrice: 0.1, demandVariation: 0.1, priceVariation: 0.1}
+test('DECREASE_PRICE does not reduce price to something lower than 0.01', t => {
+  const clip = {price: 0.01}
+  const variation = {demand: 0.1, clipPrice: 0.01}
+  const state = {clip, variation}
 
   mutations.DECREASE_PRICE(state)
 
-  t.true(floatEqual(state.clipPrice, 0.1))
+  t.true(floatEqual(state.clip.price, 0.01))
 })
