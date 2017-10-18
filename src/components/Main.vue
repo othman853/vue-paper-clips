@@ -19,3 +19,14 @@ export default {
   components: {ClipCounter, ProduceClip, OperationStatus, WireStatus}
 }
 </script>
+
+<style>
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>
