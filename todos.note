@@ -1,7 +1,7 @@
 Features:
   Wire
     => Implement stock
-      => Decrease wire stock on clip production
+      + Decrease wire stock on clip production
     => Implement "Buy Wire" button
       => Mutation of wire stock and funds
 
@@ -18,6 +18,11 @@ Improvements:
   => Improve variation ratings
 
 Tech debts:
-  => Check out how to test the Vue components that depend on Vuex
+  => Review unused dependencies
+  => Use Vue filters for visual formatting logic
+  => Prefer getters over direct state access on components
+  => Prefer Action usage over direct Mutation usage
+  => Declare mutation types instead of hardcoded strings
+  + Check out how to test the Vue components that depend on Vuex
   => Component test for Store and Engine pieces
     => Replace expressions by hardcoded values on component test assertions
