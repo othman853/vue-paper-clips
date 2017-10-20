@@ -1,7 +1,7 @@
-const log = require('../utils/logger')
+const _log = require('../utils/logger')
 const {SELL_CLIP} = require('../store/actions/types')
 
-module.exports = (chances, log = log) => ({
+module.exports = (chances, log = _log) => ({
   start(store) {
     const chance = chances()
     if (chance <= store.state.stats.demand) {

@@ -1,17 +1,16 @@
 <template>
   <div>
-    <p>Available funds: ${{parseFloat($store.state.stats.funds).toFixed(2)}}</p>
-    <p>Stock count: {{$store.state.clip.stock}}</p>
-    <p>Clip Price: {{parseFloat($store.state.clip.price).toFixed(2)}}</p>
-    <p>Public Demand: {{parseFloat($store.state.stats.demand * 100).toFixed(2)}}%</p>
-    <ClipPriceControl></ClipPriceControl>
+    <p ref = "availableFunds">Available funds: ${{funds | decimal}}</p>
+    <p ref = "clipStock">Stock count: {{clipStock}}</p>
+    <p ref = "clipPrice">Clip Price: ${{clipPrice | decimal}}</p>
+    <p ref = "publicDemand">Public Demand: {{demand * 100 | decimal}}%</p>
   </div>
 </template>
 
 <script>
-import ClipPriceControl from './ClipPriceControl.vue'
+import {mapGetters} from 'vuex'
 
 export default {
-  components: {ClipPriceControl}
+  computed: mapGetters(['funds', 'clipStock', 'clipPrice', 'demand'])
 }
 </script>

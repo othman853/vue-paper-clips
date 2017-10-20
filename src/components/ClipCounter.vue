@@ -1,5 +1,11 @@
 <template>
-  <h1>Clips produced: {{$store.state.clip.count}}</h1>
+  <h1>Clips produced: {{clipCount}}</h1>
 </template>
 
-<script></script>
+<script>
+import {mapGetters} from 'vuex'
+
+export default {
+  computed: mapGetters(['clipCount'])
+}
+</script>
