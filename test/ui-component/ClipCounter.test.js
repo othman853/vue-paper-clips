@@ -10,8 +10,8 @@ describe('ClipCounter', () => {
 
   Vue.use(Vuex)
 
-  const state = {clip: {count: 1}}
-  const store = new Vuex.Store({state})
+  const getters = {clipCount: _ => 1}
+  const store = new Vuex.Store({getters})
 
   it('Displays the correct amount of clips registered in the state', () => {
 
