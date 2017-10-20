@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import chai from 'chai'
+import {expect} from 'chai'
 
-import ClipCounter from '../../../src/components/ClipCounter.vue'
+import ClipCounter from 'components/ClipCounter.vue'
+
+Vue.config.productionTip = false
 
 describe('ClipCounter', () => {
 
@@ -17,7 +19,7 @@ describe('ClipCounter', () => {
 
     const clipCounter = new ClipCounterConstructor({store}).$mount()
 
-    chai.expect(clipCounter.$el.textContent).to.equal('Clips produced: 1')
+    expect(clipCounter.$el.textContent).to.equal('Clips produced: 1')
   })
 
 })

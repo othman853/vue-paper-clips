@@ -1,5 +1,8 @@
+import Vue from 'vue'
 import {expect} from 'chai'
-import store from '../../../../src/store'
+import store from 'store'
+
+Vue.config.productionTip = false
 
 describe('component test -> mutations -> clip production', () => {
 

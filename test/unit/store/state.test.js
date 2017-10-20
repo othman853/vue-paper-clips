@@ -1,26 +1,28 @@
-const test = require('ava')
+const {expect} = require('chai')
 
-const state = require('../../../src/store/state')
+const state = require('store/state')
 
-test('State has expected initial clip information', t => {
-  t.deepEqual(state.clip.count, 0)
-  t.deepEqual(state.clip.stock, 0)
-  t.deepEqual(state.clip.price, 0.25)
-})
+describe('unit -> store.state', () => {
+  it('has expected initial clip information', () => {
+    expect(state.clip.count).to.equal(0)
+    expect(state.clip.stock).to.equal(0)
+    expect(state.clip.price).to.equal(0.25)
+  })
 
-test('State has expected initial variation information', t => {
-  t.deepEqual(state.variation.demand, 0.01)
-  t.deepEqual(state.variation.clipPrice, 0.01)
-  t.deepEqual(state.variation.wirePrice, 0.2)
-})
+  it('has expected initial variation information', () => {
+    expect(state.variation.demand).to.equal(0.01)
+    expect(state.variation.clipPrice).to.equal(0.01)
+    expect(state.variation.wirePrice).to.equal(0.2)
+  })
 
-test('State has expected initial wire information', t => {
-  t.deepEqual(state.wire.stock, 1000)
-  t.deepEqual(state.wire.basePrice, 14)
-  t.deepEqual(state.wire.batchSize, 1000)
-})
+  it('has expected initial wire information', () => {
+    expect(state.wire.stock).to.equal(1000)
+    expect(state.wire.basePrice).to.equal(14)
+    expect(state.wire.batchSize).to.equal(1000)
+  })
 
-test('States has expected initial stats information', t => {
-  t.deepEqual(state.stats.funds, 0)
-  t.deepEqual(state.stats.demand, 0.3)
+  it('has expected initial stats information', () => {
+    expect(state.stats.funds).to.equal(0)
+    expect(state.stats.demand).to.equal(0.3)
+  })
 })

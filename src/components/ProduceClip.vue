@@ -1,13 +1,14 @@
 <template>
   <div>
-    <button @click="PRODUCE_CLIP" :disabled="$store.state.wire.stock < 1">Produce Paperclip</button>
+    <button @click="produceClip" :disabled="wireStock < 1" ref="btnProduceClip">Produce Paperclip</button>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
-  methods: mapMutations(['PRODUCE_CLIP'])
+  computed: mapGetters(['wireStock']),
+  methods: mapActions(['produceClip'])
 }
 </script>

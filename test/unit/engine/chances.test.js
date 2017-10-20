@@ -1,8 +1,10 @@
-const test = require('ava')
-const chances = require('../../../src/engine/chances')
+const {expect} = require('chai')
+const chances = require('engine/chances')
 
-test('Chances should return the pseudo random given by a generator', t => {
-  const generator = {random: _ => 5}
+describe('unit -> engine.chances', () => {
+  it('returns the pseudo random given by a generator', () => {
+    const generator = {random: _ => 5}
 
-  t.deepEqual(chances(generator), 5)
+    expect(chances(generator)).to.equal(5)
+  })
 })

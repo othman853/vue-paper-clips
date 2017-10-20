@@ -1,21 +1,27 @@
-const test = require('ava')
+const {expect} = require('chai')
 const sinon = require('sinon')
-const sales = require('../../../src/engine/sales')
+const types = require('store/actions/types')
+const sales = require('engine/sales')
 
-test('Sales should trigger SELL_CLIP mutation when chances are sufficient', t => {
-  const store = {commit: sinon.spy(), state: {stats:{demand: 4}}}
-  const chances = sinon.stub().returns(3)
+const noopLog = {info: function(){}}
 
-  sales(chances).start(store)
+describe('unit -> engine.sales', () => {
+  it('dispatches sellClip action when chances are sufficient', () => {
+    const store = {dispatch: sinon.spy(), state: {stats:{demand: 4}}}
+    const chances = sinon.stub().returns(3)
 
-  t.true(store.commit.calledWith('SELL_CLIP'))
+    sales(chances, noopLog).start(store)
+
+    expect(store.dispatch.calledWith(types.SELL_CLIP)).to.be.true
+  })
+
+  it('it does NOT dispatch sellClip action when chances are NOT sufficient', () => {
+    const store = {dispatch: sinon.spy(), state: {stats:{demand: 2}}}
+    const chances = sinon.stub().returns(3)
+
+    sales(chances, noopLog).start(store)
+
+    expect(store.dispatch.calledOnce).to.be.false
+  })
 })
 
-test('Sales should NOT trigger SELL_CLIP mutation when chances are NOT sufficient', t => {
-  const store = {commit: sinon.spy(), state: {stats:{demand: 2}}}
-  const chances = sinon.stub().returns(3)
-
-  sales(chances).start(store)
-
-  t.false(store.commit.calledWith('SELL_CLIP'))
-})

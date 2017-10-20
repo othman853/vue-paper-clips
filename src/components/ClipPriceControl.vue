@@ -1,14 +1,19 @@
 <template>
   <div>
-    <button @click="DECREASE_PRICE" :disabled="$store.state.clip.price <=  0.01">Reduce Price</button>
-    <button @click="INCREASE_PRICE">Increase Price</button>
+    <button @click="decreasePrice" :disabled="$store.state.clip.price <=  0.01">Reduce Price</button>
+    <button @click="increasePrice">Increase Price</button>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
+import types from '../store/actions/types'
 
 export default {
-  methods: mapMutations(['INCREASE_PRICE', 'DECREASE_PRICE'])
+  computed: mapGetters(['clipPrice']),
+  methods: mapActions({
+    increasePrice: types.INCREASE_PRICE,
+    decreasePrice: types.DECREASE_PRICE
+  })
 }
 </script>
