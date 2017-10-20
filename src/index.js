@@ -2,6 +2,9 @@ import Vue from 'vue'
 import store from './store'
 import engine from './engine'
 import Main from './components/Main.vue'
+import filters from './utils/filters'
+
+Vue.filter('decimal', filters.decimal)
 
 const application = new Vue({
   el: '#main',
