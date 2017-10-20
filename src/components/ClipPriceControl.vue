@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="decreasePrice" :disabled="$store.state.clip.price <=  0.01">Reduce Price</button>
-    <button @click="increasePrice">Increase Price</button>
+    <button ref = "btnDecreasePrice" @click = "decreasePrice" :disabled = "clipPrice <= 0.01">Decrease Price</button>
+    <button ref = "btnIncreasePrice" @click = "increasePrice">Increase Price</button>
   </div>
 </template>
 
