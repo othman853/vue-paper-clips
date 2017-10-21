@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {expect} from 'chai'
-import td from 'testdouble'
+import {mount} from './utils'
 
 import ProduceClip from 'components/ProduceClip.vue'
 
@@ -11,15 +11,8 @@ describe('ProduceClip -> Available Wire Stock', () => {
   Vue.use(Vuex)
 
   it('Allows clip production when wireStock >= 1', () => {
-    const getters = {wireStock: () => 5}
-    const actions = {produceClip: td.function()}
-
-    const store = new Vuex.Store({getters, actions})
-
-    const ProduceClipConstructor = Vue.extend(ProduceClip)
-
-    const produceClip = new ProduceClipConstructor({store}).$mount()
-
+    const actions = {produceClip: jest.fn()}
+    const produceClip = mount(ProduceClip, {actions})
     const produceClipButton = produceClip.$refs.btnProduceClip
 
     expect(produceClipButton.textContent).to.equal('Produce Paperclip')
@@ -27,19 +20,12 @@ describe('ProduceClip -> Available Wire Stock', () => {
 
     produceClipButton.click()
 
-    expect(td.explain(actions.produceClip).callCount).to.equal(1)
+    expect(actions.produceClip.mock.calls.length).to.equal(1)
   })
 
   it('Does not allow clip production when wireStock < 1', () => {
     const getters = {wireStock: () => 0}
-    const actions = {produceClip: td.function()}
-
-    const store = new Vuex.Store({getters, actions})
-
-    const ProduceClipConstructor = Vue.extend(ProduceClip)
-
-    const produceClip = new ProduceClipConstructor({store}).$mount()
-
+    const produceClip= mount(ProduceClip, {getters})
     const produceClipButton = produceClip.$refs.btnProduceClip
 
     expect(produceClipButton.disabled).to.be.true

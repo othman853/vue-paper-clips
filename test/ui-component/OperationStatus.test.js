@@ -1,20 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {expect} from 'chai'
-
-import OperationStatus from 'components/OperationStatus'
 import filters from 'filters'
+import {mount, value} from './utils'
+import OperationStatus from 'components/OperationStatus'
 
 Vue.config.productionTip = false
-
-const value = (val) => _ => val
 
 describe('OperationStatus', () => {
   Vue.use(Vuex)
   Vue.filter('decimal', filters.decimal)
 
   it('Shows values formatted correctly', () => {
-    const OperationStatusConstructor = Vue.extend(OperationStatus)
 
     const getters = {
       funds: value(0.55555),
@@ -23,9 +20,7 @@ describe('OperationStatus', () => {
       demand: value(0.3)
     }
 
-    const store = new Vuex.Store({getters})
-
-    const operationStatus = new OperationStatusConstructor({store}).$mount()
+    const operationStatus = mount(OperationStatus, {getters})
 
     expect(operationStatus.$refs.availableFunds.textContent).to.equal('Available funds: $0.56')
     expect(operationStatus.$refs.clipStock.textContent).to.equal('Stock count: 5')

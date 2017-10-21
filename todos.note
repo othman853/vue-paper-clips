@@ -2,12 +2,18 @@ Features:
   Wire
     + Implement stock
       + Decrease wire stock on clip production
+    => Implement wire price variation
     => Implement "Buy Wire" button
       => Mutation of wire stock and funds
+      => Action to commit mutation
 
   Marketing
+    => Implement the marketing state
+      => Current level
+      => Current cost
     => Implement "Increase Level" button
-    => Implement logic to increase public demand
+      => Fund checking
+      => Demand increase
 
   AutoClipper
     => Implement "Buy auto clipper" button
@@ -28,3 +34,8 @@ Tech debts:
   + Check out how to test the Vue components that depend on Vuex
   => Component test for Store and Engine pieces
     => Replace expressions by hardcoded values on component test assertions
+
+  => Black box component testing
+    + Copying state structure for each test case
+    => Verifying state changes caused by trigger actions
+    => Forget about specific relationships between components and store
