@@ -1,6 +1,3 @@
-const floatEqual = require('float-equal')
-const {expect} = require('chai')
-
 const mutations = require('store/mutations')
 
 describe('unit -> store.mutations', () => {
@@ -11,9 +8,9 @@ describe('unit -> store.mutations', () => {
 
     mutations.PRODUCE_CLIP(state)
 
-    expect(state.clip.count).to.equal(2)
-    expect(state.clip.stock).to.equal(2)
-    expect(state.wire.stock).to.equal(0)
+    expect(state.clip.count).toBe(2)
+    expect(state.clip.stock).toBe(2)
+    expect(state.wire.stock).toBe(0)
   })
 
   it('PRODUCE_CLIP does not change count and stock of clipes if there is no wire stock available', () => {
@@ -23,9 +20,9 @@ describe('unit -> store.mutations', () => {
 
     mutations.PRODUCE_CLIP(state)
 
-    expect(state.clip.count).to.equal(1)
-    expect(state.clip.stock).to.equal(1)
-    expect(state.wire.stock).to.equal(0)
+    expect(state.clip.count).toBe(1)
+    expect(state.clip.stock).toBe(1)
+    expect(state.wire.stock).toBe(0)
   })
 
   it('SELL_CLIP decrements stock and registers profit', () => {
@@ -35,9 +32,9 @@ describe('unit -> store.mutations', () => {
 
     mutations.SELL_CLIP(state)
 
-    expect(state.clip.count, 1)
-    expect(state.clip.stock, 0)
-    expect(state.stats.funds, 0.25)
+    expect(state.clip.count).toBe(1)
+    expect(state.clip.stock).toBe(0)
+    expect(state.stats.funds).toBe(0.25)
   })
 
   it('SELL_CLIP preserves 0 stock and does not register any profit', () => {
@@ -47,9 +44,9 @@ describe('unit -> store.mutations', () => {
 
     mutations.SELL_CLIP(state)
 
-    expect(state.clip.count).to.equal(1)
-    expect(state.clip.stock).to.equal(0)
-    expect(state.stats.funds).to.equal(0)
+    expect(state.clip.count).toBe(1)
+    expect(state.clip.stock).toBe(0)
+    expect(state.stats.funds).toBe(0)
   })
 
 
@@ -61,8 +58,8 @@ describe('unit -> store.mutations', () => {
 
     mutations.INCREASE_PRICE(state)
 
-    expect(floatEqual(state.clip.price, 0.06)).to.be.true
-    expect(floatEqual(state.stats.demand, 0.18)).to.be.true
+    expect(state.clip.price).toBeCloseTo(0.06)
+    expect(state.stats.demand).toBeCloseTo(0.18)
   })
 
   it('DECREASE_PRICE reduces price by priceVariation and increases demand by demand variation', () => {
@@ -73,8 +70,8 @@ describe('unit -> store.mutations', () => {
 
     mutations.DECREASE_PRICE(state)
 
-    expect(floatEqual(state.clip.price, 0.4)).to.be.true
-    expect(floatEqual(state.stats.demand, 0.22)).to.be.true
+    expect(state.clip.price).toBeCloseTo(0.4)
+    expect(state.stats.demand).toBeCloseTo(0.22)
   })
 
   it('DECREASE_PRICE does not reduce price to something lower than 0.01', () => {
@@ -84,6 +81,6 @@ describe('unit -> store.mutations', () => {
 
     mutations.DECREASE_PRICE(state)
 
-    expect(floatEqual(state.clip.price, 0.01)).to.be.true
+    expect(state.clip.price).toBeCloseTo(0.01)
   })
 })

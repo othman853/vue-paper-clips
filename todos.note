@@ -22,10 +22,12 @@ Features:
 Improvements:
   + Format floating point numbers to use two decimal places
   + Improve variation ratings
+  => Improve number rounding
+  + Use jest assertions instead of chai
 
 Tech debts:
   + Increase test coverage of ui components
-  + Review unused dependencies
+  => Review unused dependencies
   + Use Vue filters for visual formatting logic
   + Prefer getters over direct state access on components
   => Prefer black box unit testing of ui components
@@ -37,5 +39,4 @@ Tech debts:
 
   => Black box component testing
     + Copying state structure for each test case
-    => Verifying state changes caused by trigger actions
-    => Forget about specific relationships between components and store
+    => Verifying state changes caused by trigger actions instead of interactions

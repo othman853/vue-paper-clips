@@ -22,11 +22,11 @@ describe('WireStatus', () => {
     const wireStatus = mount(WireStatus, {getters})
 
     it('shows the wire stock', () => {
-      expect(wireStatus.$refs.wireStockStatus.textContent).toEqual('Wire stock: 5')
+      expect(wireStatus.$refs.wireStockStatus.textContent).toBe('Wire stock: 5')
     })
 
     it('shows the wire batch price', () => {
-      expect(wireStatus.$refs.wirePriceStatus.textContent).toEqual('Batch Price: $14.56 for 1000 inches')
+      expect(wireStatus.$refs.wirePriceStatus.textContent).toBe('Batch Price: $14.56 for 1000 inches')
     })
   })
 

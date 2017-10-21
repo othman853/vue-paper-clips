@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {expect} from 'chai'
 import {mount} from './utils'
 
 import ProduceClip from 'components/ProduceClip.vue'
@@ -15,12 +14,12 @@ describe('ProduceClip -> Available Wire Stock', () => {
     const produceClip = mount(ProduceClip, {actions})
     const produceClipButton = produceClip.$refs.btnProduceClip
 
-    expect(produceClipButton.textContent).to.equal('Produce Paperclip')
-    expect(produceClipButton.disabled).to.be.false
+    expect(produceClipButton.textContent).toBe('Produce Paperclip')
+    expect(produceClipButton.disabled).toBe(false)
 
     produceClipButton.click()
 
-    expect(actions.produceClip.mock.calls.length).to.equal(1)
+    expect(actions.produceClip).toHaveBeenCalled()
   })
 
   it('Does not allow clip production when wireStock < 1', () => {
@@ -28,6 +27,6 @@ describe('ProduceClip -> Available Wire Stock', () => {
     const produceClip= mount(ProduceClip, {getters})
     const produceClipButton = produceClip.$refs.btnProduceClip
 
-    expect(produceClipButton.disabled).to.be.true
+    expect(produceClipButton.disabled).toBe(true)
   })
 })

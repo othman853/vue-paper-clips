@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {expect} from 'chai'
 import ClipPriceControl from 'components/ClipPriceControl'
 import {mount, value} from './utils'
 
@@ -12,8 +11,8 @@ describe('ClipPriceControl', () => {
   it('has buttons to increase and decrease price', () => {
     const priceControl = mount(ClipPriceControl)
 
-    expect(priceControl.$refs.btnDecreasePrice.textContent).to.equal('Decrease Price')
-    expect(priceControl.$refs.btnIncreasePrice.textContent).to.equal('Increase Price')
+    expect(priceControl.$refs.btnDecreasePrice.textContent).toBe('Decrease Price')
+    expect(priceControl.$refs.btnIncreasePrice.textContent).toBe('Increase Price')
   })
 
   it('allows price to be increased', () => {
@@ -22,7 +21,7 @@ describe('ClipPriceControl', () => {
 
     priceControl.$refs.btnIncreasePrice.click()
 
-    expect(actions.increasePrice.mock.calls.length).to.equal(1)
+    expect(actions.increasePrice).toHaveBeenCalled()
   })
 
   it('allows price to be decreased', () => {
@@ -31,7 +30,7 @@ describe('ClipPriceControl', () => {
 
     priceControl.$refs.btnDecreasePrice.click()
 
-    expect(actions.decreasePrice.mock.calls.length).to.equal(1)
+    expect(actions.decreasePrice).toHaveBeenCalled()
   })
 
   it('does not allow price to be decreased when price is <= 0.01', () => {
@@ -39,6 +38,6 @@ describe('ClipPriceControl', () => {
     const priceControl = mount(ClipPriceControl, {getters})
     const decreasePriceButton = priceControl.$refs.btnDecreasePrice
 
-    expect(decreasePriceButton.disabled).to.be.true
+    expect(decreasePriceButton.disabled).toBe(true)
   })
 })

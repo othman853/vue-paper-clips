@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import {expect} from 'chai'
 import store from 'store'
 
 Vue.config.productionTip = false
@@ -7,10 +6,10 @@ Vue.config.productionTip = false
 describe('component test -> mutations -> clip pricing', () => {
 
   it('starts with original state values', () => {
-    expect(store.state.clip.price).to.equal(0.25)
-    expect(store.state.variation.clipPrice).to.equal(0.01)
-    expect(store.state.variation.demand).to.equal(0.01)
-    expect(store.state.stats.demand).to.equal(0.3)
+    expect(store.state.clip.price).toBe(0.25)
+    expect(store.state.variation.clipPrice).toBe(0.01)
+    expect(store.state.variation.demand).toBe(0.01)
+    expect(store.state.stats.demand).toBe(0.3)
   })
 
   it('increases clip price and reduces public demand on INCREASE_PRICE', () => {
@@ -19,8 +18,8 @@ describe('component test -> mutations -> clip pricing', () => {
 
     store.commit('INCREASE_PRICE')
 
-    expect(store.state.clip.price).to.equal(increasedPrice)
-    expect(store.state.stats.demand).to.equal(decreasedDemand)
+    expect(store.state.clip.price).toBe(increasedPrice)
+    expect(store.state.stats.demand).toBe(decreasedDemand)
   })
 
   it('decreases clip price and increases public demand on DECREASE_PRICE', () => {
@@ -29,8 +28,8 @@ describe('component test -> mutations -> clip pricing', () => {
 
     store.commit('DECREASE_PRICE')
 
-    expect(store.state.clip.price).to.equal(decreasedPrice)
-    expect(store.state.stats.demand).to.equal(increasedDemand)
+    expect(store.state.clip.price).toBe(decreasedPrice)
+    expect(store.state.stats.demand).toBe(increasedDemand)
   })
 })
 
