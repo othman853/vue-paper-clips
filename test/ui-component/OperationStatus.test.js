@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import {expect} from 'chai'
 
 import OperationStatus from 'components/OperationStatus'
-import filters from 'utils/filters'
+import filters from 'filters'
 
 Vue.config.productionTip = false
 

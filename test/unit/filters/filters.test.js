@@ -1,4 +1,4 @@
-import filters from 'utils/filters'
+import filters from 'filters'
 import {expect} from 'chai'
 
 describe('unit -> utils.filters', () => {

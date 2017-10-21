@@ -1,7 +1,15 @@
 <template>
   <div id="wire-status">
-    <p>Wire stock: {{$store.state.wire.stock}}</p>
-    <p>Batch Price: ${{$store.state.wire.basePrice.toFixed(2)}} for {{$store.state.wire.batchSize}} inches</p>
-    <button :disabled="$store.state.stats.funds < $store.state.wire.basePrice">Buy</button>
+    <p ref="wireStockStatus">Wire stock: {{wireStock}}</p>
+    <p ref="wirePriceStatus">Batch Price: ${{wireBasePrice | decimal}} for {{wireBatchSize}} inches</p>
+    <button ref="btnBuyWire" :disabled="funds < wireBasePrice">Buy</button>
   </div>
 </template>
+
+<script>
+import {mapGetters} from 'vuex'
+
+export default {
+  computed: mapGetters(['wireStock', 'wireBasePrice', 'wireBatchSize', 'funds'])
+}
+</script>

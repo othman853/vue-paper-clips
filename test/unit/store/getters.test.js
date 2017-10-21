@@ -31,4 +31,15 @@ describe('unit -> store.getters', () => {
     const state = {stats: {demand: 5}}
     expect(getters.demand(state)).to.equal(5)
   })
+
+  it('.wireBasePrice retrieves correct value from state object', () => {
+    const state = {wire: {basePrice: 5}}
+    expect(getters.wireBasePrice(state)).to.equal(5)
+  })
+
+  it('.wireBatchSize retrieves correct value from state object', () => {
+    const state = {wire: {batchSize: 5}}
+    expect(getters.wireBatchSize(state)).to.equal(5)
+  })
+
 })
