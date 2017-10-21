@@ -18,10 +18,11 @@ Improvements:
   + Improve variation ratings
 
 Tech debts:
-  => Increase test coverage of ui components
+  + Increase test coverage of ui components
   + Review unused dependencies
   + Use Vue filters for visual formatting logic
-  => Prefer getters over direct state access on components
+  + Prefer getters over direct state access on components
+  => Prefer black box unit testing of ui components
   + Prefer Action usage over direct Mutation usage
   + Declare mutation types instead of hardcoded strings
   + Check out how to test the Vue components that depend on Vuex

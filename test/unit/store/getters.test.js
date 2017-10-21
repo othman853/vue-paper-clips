@@ -41,5 +41,4 @@ describe('unit -> store.getters', () => {
     const state = {wire: {batchSize: 5}}
     expect(getters.wireBatchSize(state)).to.equal(5)
   })
-
 })
